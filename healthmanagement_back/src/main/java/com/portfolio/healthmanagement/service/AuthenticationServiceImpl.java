@@ -1,7 +1,6 @@
 package com.portfolio.healthmanagement.service;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -45,12 +44,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	private final AuthenticationManagerBuilder authenticationManagerBuilder;
 	private final JwtTokenProvider jwtTokenProvider;
 
+	@Override
 	public void checkDuplicatedUsername(String username) {
 		if (userRepositiory.findUserByUsername(username) != null) {
 			throw new CustomException("Duplicated Email", ErrorMap.builder().put("username", "가입 된 아이디 입니다.").build());
 		}
 	}
 
+	@Override
 	public int register(registerReqDto registerReqDto) {
 
 		User userEntity = registerReqDto.toEntity();

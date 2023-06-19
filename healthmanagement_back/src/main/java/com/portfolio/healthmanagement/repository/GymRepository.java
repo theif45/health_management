@@ -5,12 +5,11 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.portfolio.healthmanagement.entity.MyGym;
 import com.portfolio.healthmanagement.entity.Gym;
-import com.portfolio.healthmanagement.entity.GymImgs;
 import com.portfolio.healthmanagement.entity.GymImgsDetail;
 import com.portfolio.healthmanagement.entity.GymOwner;
 import com.portfolio.healthmanagement.entity.LikeList;
+import com.portfolio.healthmanagement.entity.MyGym;
 
 @Mapper
 public interface GymRepository {

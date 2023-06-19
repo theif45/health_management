@@ -1,7 +1,5 @@
 package com.portfolio.healthmanagement.entity;
 
-
-
 import java.sql.Date;
 import java.util.List;
 
@@ -12,7 +10,6 @@ import com.portfolio.healthmanagement.security.PrincipalUserDetails;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Builder

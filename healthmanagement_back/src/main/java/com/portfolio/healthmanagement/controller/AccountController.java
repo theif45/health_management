@@ -3,8 +3,6 @@ package com.portfolio.healthmanagement.controller;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.portfolio.healthmanagement.dto.account.ModifyPasswordReqDto;
 import com.portfolio.healthmanagement.dto.account.ModifyUserInfoReqDto;
-import com.portfolio.healthmanagement.dto.auth.ForgotReqDto;
 import com.portfolio.healthmanagement.service.AccountService;
 
 import lombok.RequiredArgsConstructor;

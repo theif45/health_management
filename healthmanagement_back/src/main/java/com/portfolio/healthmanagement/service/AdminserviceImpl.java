@@ -58,12 +58,12 @@ public class AdminserviceImpl implements AdminService{
 		LocalDate today = LocalDate.now();
 		for (int i = 0; i < 7; i++) {
 			Map<String, Object> map = new HashMap<>();
-            LocalDate previousDay = today.minusDays(-i+6);
-            int userCount  = adminRepository.userCount(Date.valueOf(previousDay));
-            map.put("x", previousDay);
-            map.put("y", userCount);
-            responseData.add(map);
-        }
+			LocalDate previousDay = today.minusDays(-i+6);
+			int userCount  = adminRepository.userCount(Date.valueOf(previousDay));
+			map.put("x", previousDay);
+			map.put("y", userCount);
+			responseData.add(map);
+		}
 		
 		return responseData;
 	}
@@ -74,12 +74,12 @@ public class AdminserviceImpl implements AdminService{
 		LocalDate today = LocalDate.now();
 		for (int i = 0; i < 7; i++) {
 			Map<String, Object> map = new HashMap<>();
-            LocalDate previousDay = today.minusDays(-i+6);
-            int gymCount  = adminRepository.gymCount(Date.valueOf(previousDay));
-            map.put("x", previousDay);
-            map.put("y", gymCount);
-            responseData.add(map);
-        }
+			LocalDate previousDay = today.minusDays(-i+6);
+			int gymCount  = adminRepository.gymCount(Date.valueOf(previousDay));
+			map.put("x", previousDay);
+			map.put("y", gymCount);
+			responseData.add(map);
+		}
 		
 		System.out.println(responseData);
 		return responseData;

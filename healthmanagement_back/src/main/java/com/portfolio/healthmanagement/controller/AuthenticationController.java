@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.portfolio.healthmanagement.aop.annotation.ValidAspect;
@@ -23,7 +22,6 @@ import com.portfolio.healthmanagement.dto.auth.OAuth2RegisterReqDto;
 import com.portfolio.healthmanagement.dto.auth.registerReqDto;
 import com.portfolio.healthmanagement.exception.CustomException;
 import com.portfolio.healthmanagement.security.JwtTokenProvider;
-import com.portfolio.healthmanagement.service.AccountService;
 import com.portfolio.healthmanagement.service.AuthenticationService;
 
 import lombok.RequiredArgsConstructor;

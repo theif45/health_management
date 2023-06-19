@@ -1,7 +1,6 @@
 package com.portfolio.healthmanagement.entity;
 
 import java.sql.Date;
-import java.util.List;
 
 import com.portfolio.healthmanagement.dto.admin.UserCountRespDto;
 

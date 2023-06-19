@@ -2,7 +2,7 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: quseis@gmail.com
+    username: whdgus1414@gmail.com
     password: zfilqhajdjgtzmlh
     properties:
       mail.smtp.auth: true
@@ -64,4 +64,4 @@ jwt:
   secret: n9GeQdOVaqlkAH3kMmKcCSpp2KDvk697oUXqFRXjCiFPCoou5UgrxV9vX70vTekO
   
 file:
-  path: C:\aws_project\workspace\healthmanagement\healthmanagement_back\upLoad\
+  path: C:\workspace\health_management\healthmanagement_back\upLoad\

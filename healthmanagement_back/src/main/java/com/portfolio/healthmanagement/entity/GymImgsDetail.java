@@ -1,7 +1,5 @@
 package com.portfolio.healthmanagement.entity;
 
-import java.util.List;
-
 import com.portfolio.healthmanagement.dto.gym.GymImgRespDto;
 
 import lombok.AllArgsConstructor;

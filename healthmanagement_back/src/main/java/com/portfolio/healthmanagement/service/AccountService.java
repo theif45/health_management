@@ -6,7 +6,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.portfolio.healthmanagement.dto.account.ModifyPasswordReqDto;
 import com.portfolio.healthmanagement.dto.account.ModifyUserInfoReqDto;
-import com.portfolio.healthmanagement.dto.auth.ForgotReqDto;
 import com.portfolio.healthmanagement.dto.gym.LikeListRespDto;
 import com.portfolio.healthmanagement.dto.gym.MyGymListRespDto;
 import com.portfolio.healthmanagement.dto.response.PrincipalRespDto;

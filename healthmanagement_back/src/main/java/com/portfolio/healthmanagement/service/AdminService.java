@@ -6,7 +6,6 @@ import java.util.Map;
 import com.portfolio.healthmanagement.dto.admin.GymInfoRespDto;
 import com.portfolio.healthmanagement.dto.admin.UserInfoRespDto;
 import com.portfolio.healthmanagement.dto.auth.LoginReqDto;
-import com.portfolio.healthmanagement.entity.User;
 
 public interface AdminService {
 
