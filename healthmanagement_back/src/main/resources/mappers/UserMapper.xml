@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.portfolio.healthmanagement.repository.UserRepository">
+	
+	<resultMap type="com.portfolio.healthmanagement.entity.User" id="userMap">
+		<id property="userId" column="user_id"/>
+		<result property="username" column="username"/>
+		<result property="password" column="password"/>
+		<result property="name" column="name"/>
+		<result property="phone" column="phone"/>
+		<result property="email" column="email"/>
+		<result property="birthDate" column="birth_date" />
+		<result property="provider" column="provider"/>
+		<result property="profile" column="profile"/>
+		<result property="registeDate" column="registe_date" />
+		<collection property="authorities" javaType="list" resultMap="authorityMap" />
+	</resultMap>
+	
+	<resultMap type="com.portfolio.healthmanagement.entity.Authority" id="authorityMap">
+		<id property="authorityId" column="authority_id"/>
+		<result property="userId" column="user_id"/>
+		<result property="roleId" column="role_id"/>	
+		<association property="role" resultMap="roleMap"/>
+	</resultMap>
+	
+	<resultMap type="com.portfolio.healthmanagement.entity.Role" id="roleMap">
+		<id property="roleId" column="role_id"/>
+		<result property="roleName" column="role_name"/>
+	</resultMap>
+	
+	<select id="findUserByUsername" resultMap="userMap">
+		select
+			ut.user_id,
+			ut.username,
+			ut.password,
+			ut.email,
+			ut.name,
+			ut.phone,
+			ut.birth_date,
+			ut.provider,
+			ut.profile,
+			ut.registe_date,
+			
+			at.authority_id,
+			at.user_id,
+			at.role_id,
+			
+			rt.role_id,
+			rt.role_name
+		from
+			user_tb ut
+			left outer join authority_tb at on(at.user_id = ut.user_id)
+			left outer join role_tb rt on(rt.role_id = at.role_id)
+		where
+			ut.username = #{username}
+	</select>
+	
+	<select id="findUserByEmail" resultMap="userMap">
+		select
+			ut.user_id,
+			ut.username,
+			ut.password,
+			ut.email,
+			ut.name,
+			ut.phone,
+			ut.birth_date,
+			ut.provider,
+			ut.profile,
+			ut.registe_date,
+			
+			at.authority_id,
+			at.user_id,
+			at.role_id,
+			
+			rt.role_id,
+			rt.role_name
+		from
+			user_tb ut
+			left outer join authority_tb at on(at.user_id = ut.user_id)
+			left outer join role_tb rt on(rt.role_id = at.role_id)
+		where
+			ut.email = #{email}
+	</select>
+	
+	<insert id="saveUser" parameterType="com.portfolio.healthmanagement.entity.User" useGeneratedKeys="true"
+	keyProperty="userId">
+		insert into user_tb
+		values(0,#{username},#{password},#{name},#{phone},#{email},#{birth_date},#{provider},#{profile},#{registeDate})
+	</insert>
+	
+	<insert id="saveAuthority" parameterType="com.portfolio.healthmanagement.entity.Authority">
+		insert into authority_tb
+		values(0,#{userId},#{roleId})
+	</insert>
+	
+	<update id="updateProvider" parameterType="com.portfolio.healthmanagement.entity.User">
+		update user_tb
+		set
+			provider = #{provider}
+		where
+			user_id = #{userId}
+	</update>
+	<select id="findUserByEmailAndName" resultType="String" parameterType="com.portfolio.healthmanagement.entity.User">
+		select
+			username
+		from
+			user_tb
+		where
+			email = #{email}
+		and name = #{name}
+	</select>
+	
+	<select id="findPasswordByEmailAndNameAndUsername" resultType="Integer" parameterType="com.portfolio.healthmanagement.entity.User">
+		select
+			count(*)
+		from
+			user_tb
+		where
+			email = #{email}
+		and name = #{name}
+		and username = #{username}
+	
+	</select>
+	
+	<update id="forgotPassword" parameterType="hashmap">
+		update user_tb
+		set
+			password = #{password}
+		where 
+			email = #{email}
+	</update>
+	
+		<update id="updateProfileImg" parameterType="com.portfolio.healthmanagement.entity.User">
+		update user_tb
+		set
+			profile= #{profile}
+		where
+			user_id = #{userId}
+	</update>
+	
+</mapper>

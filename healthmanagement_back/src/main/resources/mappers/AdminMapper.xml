@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.portfolio.healthmanagement.repository.AdminRepository">
+	<resultMap type="com.portfolio.healthmanagement.entity.Gym" id="gymMap">
+		<id property="gymId" column="gym_id"/>
+		<result property="gymName" column="gym_name"/>
+		<result property="gymAddress" column="gym_address"/>
+		<result property="gymTel" column="gym_tel"/>
+		<result property="businessNumber" column="business_number"/>
+		<result property="gymPrice" column="gym_price"/>
+		<result property="likeCount" column="like_count"/>
+		<result property="registeDate" column="registe_date"/>
+		<result property="removeDate" column="remove_date"/>
+		<association property="gymOwner" resultMap="gymOwnerMap" />
+	</resultMap>
+	
+	<resultMap type="com.portfolio.healthmanagement.entity.GymOwner" id="gymOwnerMap">
+		<id property="gymOwnerId" column="gym_owner_id"/>
+		<result property="userId" column="user_id"/>
+		<result property="gymId" column="gym_id"/>
+		<association property="user" resultMap="userMap" />
+	</resultMap>
+	
+	<resultMap type="com.portfolio.healthmanagement.entity.User" id="userMap">
+		<id property="userId" column="user_id"/>
+		<result property="username" column="username"/>
+		<result property="password" column="password"/>
+		<result property="name" column="name"/>
+		<result property="phone" column="phone"/>
+		<result property="email" column="email"/>
+		<result property="birthDate" column="birth_date" />
+		<result property="provider" column="provider"/>
+		<result property="profile" column="profile"/>
+		<result property="registeDate" column="registe_date" />
+		<collection property="authorities" javaType="list" resultMap="authorityMap" />
+	</resultMap>
+	
+	<resultMap type="com.portfolio.healthmanagement.entity.Authority" id="authorityMap">
+		<id property="authorityId" column="authority_id"/>
+		<result property="userId" column="user_id"/>
+		<result property="roleId" column="role_id"/>	
+		<association property="role" resultMap="roleMap"/>
+	</resultMap>
+	
+	<resultMap type="com.portfolio.healthmanagement.entity.Role" id="roleMap">
+		<id property="roleId" column="role_id"/>
+		<result property="roleName" column="role_name"/>
+	</resultMap>
+	
+	<select id="userCount" resultType="Integer">
+		select 
+			count(*) as userCount
+		from 
+			user_tb
+		where
+			registe_date = #{date}
+	</select>
+	
+	<select id="gymCount" resultType="Integer">
+		select 
+			count(*) as userCount
+		from 
+			gym_tb
+		where
+			registe_date = #{date}
+	</select>
+	
+	<select id="userPage" resultType="Integer">
+		select 
+			count(*) as userCount
+		from 
+			user_tb
+	</select>
+	
+	<select id="getUsers"  resultMap="userMap">
+		select
+			ut.user_id,
+			ut.username,
+			ut.password,
+			ut.email,
+			ut.name,
+			ut.phone,
+			ut.birth_date,
+			ut.provider,
+			ut.profile,
+			ut.registe_date,
+			
+			at.authority_id,
+			at.user_id,
+			at.role_id,
+			
+			rt.role_id,
+			rt.role_name
+		from
+			user_tb ut
+			left outer join authority_tb at on(at.user_id = ut.user_id)
+			left outer join role_tb rt on(rt.role_id = at.role_id)
+	</select>
+	
+	<select id="gymPage" resultType="Integer">
+		select 
+			count(*) as gymCount
+		from 
+			gym_tb
+	</select>
+	
+	<select id="getGyms" resultMap="gymMap">
+		select
+			gt.gym_id,
+			gt.gym_name,
+			gt.gym_address,
+			gt.gym_tel,
+			gt.business_number,
+			gt.registe_date,
+		
+			ut.username
+		from
+			gym_tb gt 
+			left outer join gym_owner_tb got on(got.gym_id = gt.gym_id)
+			left outer join user_tb ut on(ut.user_id = got.user_id)
+	</select>
+	
+</mapper>
