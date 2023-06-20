@@ -12,7 +12,4 @@ public class MyGymListRespDto {
 	private String gymAddress;
 	private String gymTel;
 	private String gymPrice;
-	
-	
-
 }

@@ -1,6 +1,6 @@
 package com.portfolio.healthmanagement.entity;
 
-import com.portfolio.healthmanagement.dto.gym.LikeListRespDto;
+import com.portfolio.healthmanagement.dto.gym.FavoriteRespDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,8 +19,8 @@ public class LikeList {
 	private String gymPrice;
 	private String gymTel;
 	
-	public LikeListRespDto toDto(){
-		return LikeListRespDto.builder()
+	public FavoriteRespDto toDto(){
+		return FavoriteRespDto.builder()
 				.userId(userId)
 				.gymId(gymId)
 				.gymName(gymName)

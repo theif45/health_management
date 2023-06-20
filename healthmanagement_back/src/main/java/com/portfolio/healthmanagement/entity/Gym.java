@@ -4,7 +4,7 @@ import java.sql.Date;
 
 import com.portfolio.healthmanagement.dto.admin.GymInfoRespDto;
 import com.portfolio.healthmanagement.dto.gym.GetGymAddressAndGymNameRespDto;
-import com.portfolio.healthmanagement.dto.gym.GetGymRespDto;
+import com.portfolio.healthmanagement.dto.gym.GymRespDto;
 import com.portfolio.healthmanagement.dto.gym.SearchGymRespDto;
 
 import lombok.AllArgsConstructor;
@@ -48,8 +48,8 @@ public class Gym {
 				
 	}
 	
-	public GetGymRespDto toGetGymDto() {
-		return GetGymRespDto.builder()
+	public GymRespDto toGetGymDto() {
+		return GymRespDto.builder()
 				.gymId(gymId)
 				.gymName(gymName)
 				.gymAddress(gymAddress)

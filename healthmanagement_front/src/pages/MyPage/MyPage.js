@@ -228,7 +228,7 @@ const MyPage = () => {
                     "Content-Type": "multipart/form-data",
                 },
             };
-            const response = await axios.post("http://localhost:8080/account/user/mypage/profile", formData, option);
+            const response = await axios.post("http://localhost:8080/account/users/mypage/profile", formData, option);
             return response;
         },
         {

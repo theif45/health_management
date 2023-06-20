@@ -19,7 +19,7 @@ import com.portfolio.healthmanagement.dto.auth.ForgotReqDto;
 import com.portfolio.healthmanagement.dto.auth.LoginReqDto;
 import com.portfolio.healthmanagement.dto.auth.OAuth2ProviderMergeReqDto;
 import com.portfolio.healthmanagement.dto.auth.OAuth2RegisterReqDto;
-import com.portfolio.healthmanagement.dto.auth.registerReqDto;
+import com.portfolio.healthmanagement.dto.auth.RegisterReqDto;
 import com.portfolio.healthmanagement.exception.CustomException;
 import com.portfolio.healthmanagement.security.JwtTokenProvider;
 import com.portfolio.healthmanagement.service.AuthenticationService;
@@ -36,7 +36,7 @@ public class AuthenticationController {
 
 	@ValidAspect
 	@PostMapping("/register")
-	public ResponseEntity<?> signup(@Valid @RequestBody registerReqDto registerReqDto, BindingResult bindingResult) {
+	public ResponseEntity<?> signup(@Valid @RequestBody RegisterReqDto registerReqDto, BindingResult bindingResult) {
 		authenticationService.checkDuplicatedUsername(registerReqDto.getUsername());
 		authenticationService.register(registerReqDto);
 		return ResponseEntity.ok().body(true);

@@ -1,7 +1,5 @@
 package com.portfolio.healthmanagement.dto.gym;
 
-import java.util.List;
-
 import lombok.Data;
 
 @Data

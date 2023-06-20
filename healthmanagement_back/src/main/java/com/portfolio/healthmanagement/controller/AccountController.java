@@ -52,7 +52,7 @@ public class AccountController {
 		return ResponseEntity.ok(accountService.modifyPassword(modifyPasswordReqDto));
 	}
 
-	@PostMapping("/user/mypage/profile")
+	@PostMapping("/users/mypage/profile")
 	public ResponseEntity<?> updateProfileImg(@RequestPart MultipartFile profileImgFile){
 		return ResponseEntity.ok(accountService.updateProfileImg(profileImgFile));
 	}

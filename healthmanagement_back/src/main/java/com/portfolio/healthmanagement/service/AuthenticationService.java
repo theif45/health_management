@@ -12,13 +12,13 @@ import com.portfolio.healthmanagement.dto.auth.ForgotReqDto;
 import com.portfolio.healthmanagement.dto.auth.LoginReqDto;
 import com.portfolio.healthmanagement.dto.auth.OAuth2ProviderMergeReqDto;
 import com.portfolio.healthmanagement.dto.auth.OAuth2RegisterReqDto;
-import com.portfolio.healthmanagement.dto.auth.registerReqDto;
+import com.portfolio.healthmanagement.dto.auth.RegisterReqDto;
 
 
 public interface AuthenticationService extends OAuth2UserService<OAuth2UserRequest, OAuth2User>, UserDetailsService {
 	
 	public void checkDuplicatedUsername(String username);
-	public int register(registerReqDto registerReqDto);
+	public int register(RegisterReqDto registerReqDto);
 	public String login(LoginReqDto loginReqDto);
 	public int oauth2Registe(OAuth2RegisterReqDto oAuth2RegisterReqDto);
 	public boolean checkPassword(OAuth2ProviderMergeReqDto oAuth2ProviderMergeReqDto);

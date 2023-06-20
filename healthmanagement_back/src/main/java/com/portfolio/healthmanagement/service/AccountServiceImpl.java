@@ -19,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.portfolio.healthmanagement.dto.account.ModifyPasswordReqDto;
 import com.portfolio.healthmanagement.dto.account.ModifyUserInfoReqDto;
-import com.portfolio.healthmanagement.dto.gym.LikeListRespDto;
+import com.portfolio.healthmanagement.dto.gym.FavoriteRespDto;
 import com.portfolio.healthmanagement.dto.gym.MyGymListRespDto;
 import com.portfolio.healthmanagement.dto.response.PrincipalRespDto;
 import com.portfolio.healthmanagement.entity.User;
@@ -120,8 +120,8 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public List<LikeListRespDto> likeGyms(int userId) {
-		List<LikeListRespDto> list = new ArrayList<>();
+	public List<FavoriteRespDto> likeGyms(int userId) {
+		List<FavoriteRespDto> list = new ArrayList<>();
 		gymRepository.likeGyms(userId).forEach(likeData -> {
 			list.add(likeData.toDto());
 		});

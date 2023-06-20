@@ -25,7 +25,7 @@ import com.portfolio.healthmanagement.dto.auth.ForgotReqDto;
 import com.portfolio.healthmanagement.dto.auth.LoginReqDto;
 import com.portfolio.healthmanagement.dto.auth.OAuth2ProviderMergeReqDto;
 import com.portfolio.healthmanagement.dto.auth.OAuth2RegisterReqDto;
-import com.portfolio.healthmanagement.dto.auth.registerReqDto;
+import com.portfolio.healthmanagement.dto.auth.RegisterReqDto;
 import com.portfolio.healthmanagement.entity.Authority;
 import com.portfolio.healthmanagement.entity.User;
 import com.portfolio.healthmanagement.exception.CustomException;
@@ -52,7 +52,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	}
 
 	@Override
-	public int register(registerReqDto registerReqDto) {
+	public int register(RegisterReqDto registerReqDto) {
 
 		User userEntity = registerReqDto.toEntity();
 		userRepositiory.saveUser(userEntity);

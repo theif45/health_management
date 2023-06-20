@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class LikeListRespDto {
+public class FavoriteRespDto {
 	private int userId;
 	private int gymId;
 	private String gymName;

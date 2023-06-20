@@ -26,7 +26,6 @@ public class AdminController {
 	@ValidAspect
 	@PostMapping("/login")
 	public ResponseEntity<?> Login(@Valid @RequestBody LoginReqDto loginReqDto, BindingResult bindingResult) {
-		System.out.println(loginReqDto);
 		return ResponseEntity.ok(adminService.login(loginReqDto));
 	}
 	

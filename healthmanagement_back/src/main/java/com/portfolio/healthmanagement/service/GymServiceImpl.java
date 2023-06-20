@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.portfolio.healthmanagement.dto.gym.GetGymAddressAndGymNameRespDto;
-import com.portfolio.healthmanagement.dto.gym.GetGymRespDto;
+import com.portfolio.healthmanagement.dto.gym.GymRespDto;
 import com.portfolio.healthmanagement.dto.gym.GymImgRespDto;
 import com.portfolio.healthmanagement.dto.gym.RegisterGymImgsReqDto;
 import com.portfolio.healthmanagement.dto.gym.RegisterGymReqDto;
@@ -43,7 +43,7 @@ public class GymServiceImpl implements GymService{
 	private final GymRepository gymRepository;
 	
 	@Override
-	public GetGymRespDto getGym(int gymId) {
+	public GymRespDto getGym(int gymId) {
 		return gymRepository.getGym(gymId).toGetGymDto();
 	}
 	

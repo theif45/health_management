@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Builder
 @Data
-public class GetGymRespDto {
+public class GymRespDto {
 	
 	private int gymId;
 	private String gymName;

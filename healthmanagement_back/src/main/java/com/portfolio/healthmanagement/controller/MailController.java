@@ -13,7 +13,7 @@ import com.portfolio.healthmanagement.service.MailService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("mail")
+@RequestMapping("/mail")
 @RequiredArgsConstructor
 
 public class MailController {
@@ -21,7 +21,6 @@ public class MailController {
 	
 	@PostMapping("/send")
 	public ResponseEntity<?> send(@RequestBody Map<String, String> requestData) {
-		System.out.println(requestData);
 		return ResponseEntity.ok(mailService.validAndSendEmail(requestData.get("email")));
 	}
 }

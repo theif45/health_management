@@ -149,7 +149,6 @@ const LikeList = () => {
         };
         return await axios.get(`http://localhost:8080/account/users/${userId}/favorites`, option);
     });
-    console.log(likeGyms);
     if (likeGyms.isLoading) {
         return <div>로딩중...</div>;
     }

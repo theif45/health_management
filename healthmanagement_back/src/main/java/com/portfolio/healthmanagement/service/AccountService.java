@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.portfolio.healthmanagement.dto.account.ModifyPasswordReqDto;
 import com.portfolio.healthmanagement.dto.account.ModifyUserInfoReqDto;
-import com.portfolio.healthmanagement.dto.gym.LikeListRespDto;
+import com.portfolio.healthmanagement.dto.gym.FavoriteRespDto;
 import com.portfolio.healthmanagement.dto.gym.MyGymListRespDto;
 import com.portfolio.healthmanagement.dto.response.PrincipalRespDto;
 import com.portfolio.healthmanagement.entity.User;
@@ -21,6 +21,6 @@ public interface AccountService {
 	public int deleteUser(int userId);
 	public int setLike(int gymId, int userId);
 	public int disLike(int gymId, int userId);
-	public List<LikeListRespDto> likeGyms(int userId);
+	public List<FavoriteRespDto> likeGyms(int userId);
 	public List<MyGymListRespDto> myGyms(int userId);
 }
