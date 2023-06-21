@@ -194,7 +194,7 @@ const ForgotPassword = () => {
     return (
         <div css={container}>
             <header css={header}>
-                <img css={mainLogo} src="/image/gymLogo.png" alt="" />
+                <img css={mainLogo} src="/images/logo.png" alt="" />
             </header>
             <main css={main}>
                 <div css={title}>

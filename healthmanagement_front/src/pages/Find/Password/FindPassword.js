@@ -110,12 +110,11 @@ const FindPassword = () => {
 
     const sendMail = useMutation(async () => {
         const response = await axios.post("http://localhost:8080/mail/send", { email });
-        if (!response.data == "4" || "2" || "3") {
+        if (response.data !== "4" || "2" || "3") {
             alert("메일을 발송하였습니다.");
         } else {
             alert("메일 발송을 실패하였습니다.");
         }
-        const token = response.data;
         return response;
     });
 
@@ -130,7 +129,7 @@ const FindPassword = () => {
     return (
         <div css={container}>
             <header css={header}>
-                <img css={mainLogo} src="/image/gymLogo.png" alt="" onClick={() => navigate("/auth/login")} />
+                <img css={mainLogo} src="/images/logo.png" alt="" onClick={() => navigate("/auth/login")} />
             </header>
             <main css={main}>
                 <div css={titleContainer}>

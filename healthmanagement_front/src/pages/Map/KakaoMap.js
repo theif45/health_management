@@ -170,6 +170,7 @@ const KaKaoMap = () => {
         // 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
         searchAddrFromCoords(state.center, (result, status) => {
             if (status === kakao.maps.services.Status.OK) {
+                console.log(result);
                 const address = result[0].address_name.split(" ")[1] + " " + result[0].address_name.split(" ")[2];
                 setMyCenter(address);
             }
@@ -216,7 +217,7 @@ const KaKaoMap = () => {
                                 key={index}
                                 position={nearLatLngName}
                                 image={{
-                                    src: "images/health.png",
+                                    src: "/images/health.png",
                                     size: {
                                         width: 24,
                                         height: 35,
