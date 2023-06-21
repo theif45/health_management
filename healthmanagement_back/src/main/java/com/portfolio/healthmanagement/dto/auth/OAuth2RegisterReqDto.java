@@ -1,6 +1,7 @@
 package com.portfolio.healthmanagement.dto.auth;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.validation.constraints.Pattern;
 
@@ -37,6 +38,7 @@ public class OAuth2RegisterReqDto {
 	
 	public User toEntity() {
 		Date date = Date.valueOf(birthDate);
+		Date registeDate = Date.valueOf(LocalDate.now());
 		return User.builder()
 				.username(username)
 				.password(new BCryptPasswordEncoder().encode(password))
@@ -45,6 +47,7 @@ public class OAuth2RegisterReqDto {
 				.phone(phone)
 				.birthDate(date)
 				.provider(provider)
+				.registeDate(registeDate)
 				.build();
 	}
 }
